@@ -23,3 +23,10 @@ npm run build    # dist/
 - Calibrer le barème (`BAREME` dans l'Edge Function) et les règles de profil avec Julien.
 - Remplacer tous les `[NB]`, `[PHOTO]`, `[Prénom]` par des données sourcées (Spider, Symbiose) et des visuels autorisés (`recruteurs.publiable = true`).
 - Relire les situations marquées `[À ÉCRIRE]` dans `src/content/test.ts`.
+
+## Accès réservé (phase de construction)
+
+Toutes les pages exigent une connexion (Supabase Auth, email + mot de passe) via `/connexion.html`.
+La fonction `parcours` vérifie le jeton de l'utilisateur (verify_jwt + `auth.getUser`).
+Les comptes sont créés à la main dans Supabase → Authentication → Users ; l'inscription publique doit rester désactivée.
+Pour ouvrir la plateforme au public : retirer la garde dans `src/boot.ts`, le contrôle du jeton dans `api.ts` et dans la fonction, redéployer avec `verify_jwt: false`.

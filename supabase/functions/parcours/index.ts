@@ -56,6 +56,12 @@ Deno.serve(async (req) => {
   if (req.method !== "POST") return new Response(JSON.stringify({ error: "POST only" }), { status: 405, headers: cors(origin) });
 
   const sb = createClient(Deno.env.get("SUPABASE_URL")!, Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!);
+
+  // Accès réservé pendant la construction : seul un utilisateur connecté (Supabase Auth) peut écrire.
+  const jeton = (req.headers.get("authorization") ?? "").replace(/^Bearer\s+/i, "");
+  const { data: auth, error: authErr } = jeton ? await sb.auth.getUser(jeton) : { data: { user: null }, error: null };
+  if (authErr || !auth?.user) return new Response(JSON.stringify({ error: "Connexion requise" }), { status: 401, headers: cors(origin) });
+
   let body: any;
   try { body = await req.json(); } catch { return new Response(JSON.stringify({ error: "JSON invalide" }), { status: 400, headers: cors(origin) }); }
   const { action, session_id } = body ?? {};

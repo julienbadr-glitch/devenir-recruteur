@@ -1,5 +1,7 @@
 // Client minimal vers l'Edge Function « parcours ». La clé publishable est publique par conception ;
 // toute écriture sensible est validée côté serveur (voir supabase/functions/parcours/index.ts).
+import { sessionCourante } from "./auth";
+
 const URL = import.meta.env.VITE_SUPABASE_URL ?? "https://icqwtdftddxjvvzqdnms.supabase.co";
 const KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY ?? "sb_publishable_osJVWZs8sn_T3FW2o5pxHA_F8F3yC4r";
 const FN = `${URL}/functions/v1/parcours`;
@@ -9,7 +11,10 @@ export type Scores = Record<"vendre" | "identifier" | "presenter" | "organiser" 
 export type Resultat = { scores: Scores; profil: string; point_faible: string; redhibitoire: boolean };
 
 async function post<T = any>(body: Record<string, unknown>): Promise<T> {
-  const r = await fetch(FN, { method: "POST", headers: { "Content-Type": "application/json", apikey: KEY }, body: JSON.stringify(body) });
+  // Accès réservé pendant la construction : le jeton de l'utilisateur connecté est exigé par la fonction (verify_jwt).
+  const s = await sessionCourante();
+  if (!s) throw new Error("Session expirée. Reconnectez-vous.");
+  const r = await fetch(FN, { method: "POST", headers: { "Content-Type": "application/json", apikey: KEY, Authorization: `Bearer ${s.access_token}` }, body: JSON.stringify(body) });
   const j = await r.json();
   if (!r.ok) throw new Error(j.error ?? r.statusText);
   return j as T;

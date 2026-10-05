@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connexion · Devenir recruteur indépendant · Mercato de l’Emploi</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="/src/styles.css">
+</head>
+<body data-page="connexion">
+<div class="img h-test" style="min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; box-sizing: border-box; position: relative">
+  <span style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(30,14,70,0.82) 0%, rgba(30,14,70,0.55) 100%)"></span>
+  <form id="f" style="position: relative; width: 100%; max-width: 400px; background: #FFFFFF; border-radius: 18px; padding: 32px; display: flex; flex-direction: column; gap: 16px; box-shadow: 0 24px 60px rgba(11,18,38,0.35)">
+    <div style="display: flex; align-items: center; gap: 10px">
+      <span style="width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(135deg, #E06A4A 0%, #F2A33C 100%); display: inline-flex; align-items: center; justify-content: center"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V8l8-4 8 4v12M9 20v-6h6v6"/></svg></span>
+      <span style="display: flex; flex-direction: column; line-height: 1.05"><span style="font-weight: 700; font-size: 15px">Mercato</span><span style="font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #6B7A99">de l’emploi</span></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 20px; font-weight: 600; letter-spacing: -0.015em">Accès réservé</h1>
+      <p style="margin: 0; font-size: 13.5px; color: #6B7A99; line-height: 1.5">La plateforme est en construction. Connectez-vous pour y accéder.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 5px">
+      <label for="email" style="font-size: 13px; font-weight: 600">Adresse email</label>
+      <input id="email" name="email" type="email" autocomplete="username" required style="font-size: 15px; padding: 10px 12px; border: 1px solid #E4E8F2; border-radius: 9px; min-height: 42px; box-sizing: border-box">
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 5px">
+      <label for="password" style="font-size: 13px; font-weight: 600">Mot de passe</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required style="font-size: 15px; padding: 10px 12px; border: 1px solid #E4E8F2; border-radius: 9px; min-height: 42px; box-sizing: border-box">
+    </div>
+    <p id="err" role="alert" style="margin: 0; font-size: 13px; color: #E06A4A; min-height: 18px"></p>
+    <button id="go" type="submit" style="font-size: 14px; font-weight: 600; color: #FFFFFF; background: #162649; border: 0; border-radius: 9px; padding: 12px 16px; min-height: 44px; cursor: pointer">Se connecter</button>
+  </form>
+</div>
+<script type="module" src="/src/boot.ts"></script>
+</body>
+</html>
