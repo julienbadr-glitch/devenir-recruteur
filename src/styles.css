@@ -1,0 +1,9 @@
+/* Devenir recruteur indépendant — tokens */
+:root{--ink:#0E1729;--ink2:#3D4A66;--mute:#6B7A99;--line:#E4E8F2;--bg:#F5F7FB;--card:#FFFFFF;--violet:#6D28D9;--violet2:#8B5CF6;--orange:#E06A4A;--amber:#F2A33C;--green:#1E9E6A;--blue:#2C69FF;--navy:#162649}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--ink)}a:hover{color:var(--orange)}
+.app{display:flex;flex-wrap:wrap;min-height:100vh}
+.img{background-size:cover;background-position:center}
+.h-opp{background-image:url(/img/hero-opportunite.jpg)}.h-com{background-image:url(/img/hero-communaute.jpg)}.h-aca{background-image:url(/img/hero-academie.jpg)}.h-bp{background-image:url(/img/hero-businessplan.jpg)}.h-out{background-image:url(/img/hero-outils.jpg)}.h-rej{background-image:url(/img/hero-rejoindre.jpg)}.h-map{background-image:url(/img/carte-territoire.jpg)}.h-ate{background-image:url(/img/atelier.jpg)}.h-test{background-image:url(/img/hero-test.jpg)}
+input,button{font:inherit}
+@media (max-width:900px){nav{flex:1 1 100% !important}}
