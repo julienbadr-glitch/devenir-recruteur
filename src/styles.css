@@ -7,3 +7,5 @@ a{color:var(--ink)}a:hover{color:var(--orange)}
 .h-opp{background-image:url(/img/hero-opportunite.jpg)}.h-com{background-image:url(/img/hero-communaute.jpg)}.h-aca{background-image:url(/img/hero-academie.jpg)}.h-bp{background-image:url(/img/hero-businessplan.jpg)}.h-out{background-image:url(/img/hero-outils.jpg)}.h-rej{background-image:url(/img/hero-rejoindre.jpg)}.h-map{background-image:url(/img/carte-territoire.jpg)}.h-ate{background-image:url(/img/atelier.jpg)}.h-test{background-image:url(/img/hero-test.jpg)}
 input,button{font:inherit}
 @media (max-width:900px){nav{flex:1 1 100% !important}}
+
+.ind{border-bottom:1px dotted #9AA6C2;cursor:help}

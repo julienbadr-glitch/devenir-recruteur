@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import { resolve } from "node:path";
 
-const pages = ["index", "espace", "test", "rapport", "opportunite", "communaute", "academie", "business-plan", "recrutement-a-z", "rejoindre", "connexion"];
+const pages = ["index", "espace", "test", "rapport", "opportunite", "communaute", "academie", "business-plan", "recrutement-a-z", "mentorat", "rejoindre", "connexion"];
 
 export default defineConfig({
   build: {
